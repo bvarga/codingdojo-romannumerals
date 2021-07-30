@@ -5,10 +5,11 @@ const expectations = [
     [3, 'III'],
     [4, 'IV'],
     [5, 'V'],
+    [6, 'VI'],
 ];
 
 describe('test sum function', () => {
-    test.each(expectations)('convert(%i) should return %i', (a, result) => {
+    test.each(expectations)('convert(%i) should return %s', (a, result) => {
         expect(convert(a)).toEqual(result);
     });
 });
