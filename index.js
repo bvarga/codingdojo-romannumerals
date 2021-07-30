@@ -52,14 +52,21 @@ const definitions = {
 }
 
 function convert(a) {
+  if (a === 0) {
+    throw new Error(`Romans don't know 0`);
+  }
 
-    const number = a % 10;
-    return [...Array(definitions[number].prefix)].reduce(acc => acc + 'I', '')
-      + definitions[number].base
-      + [...Array(definitions[number].suffix)].reduce(acc => 'I' + acc, '')
+  let result = '';
 
+  if (a > 10) {
+    result = 'X';
+  }
 
-    // return '💩';
+  const number = a % 10;
+  return result
+    + [...Array(definitions[number].prefix)].reduce(acc => acc + 'I', '')
+    + definitions[number].base
+    + [...Array(definitions[number].suffix)].reduce(acc => 'I' + acc, '')
 }
 
 module.exports = convert;

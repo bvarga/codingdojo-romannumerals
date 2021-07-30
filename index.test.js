@@ -10,10 +10,22 @@ const expectations = [
     [8, 'VIII'],
     [9, 'IX'],
     [10, 'X'],
+    [11, 'XI'],
+    [12, 'XII'],
+    [13, 'XIII'],
+    [14, 'XIV'],
+    [15, 'XV'],
+    [16, 'XVI'],
+    [17, 'XVII'],
+    [18, 'XVIII'],
+    [19, 'XIX'],
+    [20, 'XX'],
 ];
 
 describe('test sum function', () => {
     test.each(expectations)('convert(%i) should return %s', (a, result) => {
         expect(convert(a)).toEqual(result);
     });
+
+    //test('zero')
 });
