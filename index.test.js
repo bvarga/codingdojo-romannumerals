@@ -27,5 +27,10 @@ describe('test sum function', () => {
         expect(convert(a)).toEqual(result);
     });
 
-    //test('zero')
+    test('zero', () => {
+      const zero = () => {
+        convert(0);
+      };
+      expect(zero).toThrow();
+    })
 });
