@@ -1,7 +1,7 @@
 let convert = require('./index');
 const expectations = [
     [1, 'I'],
-    //[2, 1]
+    [2, 'II'],
 ];
 
 describe('test sum function', () => {

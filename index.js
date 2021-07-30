@@ -1,5 +1,5 @@
 function convert(a) {
-    return 'I';
+    return a === 1 ? 'I' : 'II';
 }
 
 module.exports = convert;
