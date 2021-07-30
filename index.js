@@ -1,5 +1,4 @@
 const Signs = ['I', 'V', 'X', 'L', 'C', 'D', 'M'];
-
 const RomanNumbers = {
   0: () => '',
   1: start => Signs[start],
@@ -12,7 +11,6 @@ const RomanNumbers = {
   8: start => Signs[start + 1] + Signs[start].repeat(3),
   9: start => Signs[start] + Signs[start + 2],
 }
-
 function convert(arab) {
   if (arab === 0) {
     throw new Error(`Romans don't know 0`);
@@ -28,5 +26,4 @@ function convert(arab) {
   }
   return result;
 }
-
 module.exports = convert;
