@@ -7,6 +7,9 @@ const expectations = [
     [5, 'V'],
     [6, 'VI'],
     [7, 'VII'],
+    [8, 'VIII'],
+    [9, 'IX'],
+    [10, 'X'],
 ];
 
 describe('test sum function', () => {
