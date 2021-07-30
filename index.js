@@ -1,54 +1,21 @@
-const definitions = {
-  1: {
-    base: '',
-    prefix: 1,
-    suffix: 0,
-  },
-  2: {
-    base: '',
-    prefix: 2,
-    suffix: 0,
-  },
-  3: {
-    base: '',
-    prefix: 3,
-    suffix: 0,
-  },
-  4: {
-    base: 'V',
-    prefix: 1,
-    suffix: 0,
-  },
-  5: {
-    base: 'V',
-    prefix: 0,
-    suffix: 0,
-  },
-  6: {
-    base: 'V',
-    prefix: 0,
-    suffix: 1,
-  },
-  7: {
-    base: 'V',
-    prefix: 0,
-    suffix: 2,
-  },
-  8: {
-    base: 'V',
-    prefix: 0,
-    suffix: 3,
-  },
-  9: {
-    base: 'X',
-    prefix: 1,
-    suffix: 0,
-  },
-  0: {
-    base: 'X',
-    prefix: 0,
-    suffix: 0,
-  },
+const triplets = {
+  1: ['I', 'V', 'X'],
+  2: ['X', 'L', 'C'],
+  3: ['C', 'D', 'M'],
+  4: ['M'],
+};
+
+const RomanNumbers = {
+  1: triplet => triplet[0],
+  2: triplet => triplet[0].repeat(2),
+  3: triplet => triplet[0].repeat(3),
+  4: triplet => triplet[0] + triplet[1],
+  5: triplet => triplet[1],
+  6: triplet => triplet[1] + triplet[0],
+  7: triplet => triplet[1] + triplet[0].repeat(2),
+  8: triplet => triplet[1] + triplet[0].repeat(3),
+  9: triplet => triplet[0] + triplet[2],
+  0: () => '',
 }
 
 function convert(a) {
@@ -56,17 +23,17 @@ function convert(a) {
     throw new Error(`Romans don't know 0`);
   }
 
+  let number = a;
+  let i = 1;
   let result = '';
-
-  if (a > 10) {
-    result = 'X';
+  while (number > 0) {
+    const digit = number % 10;
+    result = RomanNumbers[digit](triplets[i]) + result;
+    number = Math.floor(number / 10);
+    i += 1;
   }
 
-  const number = a % 10;
-  return result
-    + [...Array(definitions[number].prefix)].reduce(acc => acc + 'I', '')
-    + definitions[number].base
-    + [...Array(definitions[number].suffix)].reduce(acc => 'I' + acc, '')
+  return result;
 }
 
 module.exports = convert;
