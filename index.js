@@ -8,6 +8,8 @@ function convert(a) {
       ? 'III'
       : mod === 4
       ? 'IV'
+      : mod === 5
+      ? 'V'
       : '💩';
 }
 
